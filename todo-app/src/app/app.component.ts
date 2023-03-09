@@ -7,6 +7,9 @@ import { Todo } from '../todo';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   todos: Todo[] = [
     { task: 'Learn Angular', completed: true },
     { task: 'Build a todo app', completed: false },
