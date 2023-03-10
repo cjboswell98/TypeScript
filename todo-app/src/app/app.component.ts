@@ -11,13 +11,13 @@ export class AppComponent {
     throw new Error('Method not implemented.');
   }
   todos: Todo[] = [
-    { task: 'Learn Angular', completed: true },
-    { task: 'Build a todo app', completed: false },
-    { task: 'Deploy to production', completed: false }
+    { task: 'Learn Angular', completed: true, isEditing: false },
+    { task: 'Build a todo app', completed: false, isEditing: false },
+    { task: 'Deploy to production', completed: false, isEditing: false }
   ];
   
   addTask(task: string) {
-    const newTodo: Todo = { task, completed: false };
+    const newTodo: Todo = { task, completed: false, isEditing: false };
     this.todos.push(newTodo);
   }
   
@@ -30,5 +30,9 @@ export class AppComponent {
     if (index !== -1) {
       this.todos.splice(index, 1);
     }
+  }
+  
+  editTask(todo: Todo) {
+    todo.isEditing = true;
   }
 }
