@@ -1,29 +1,68 @@
-/* 
-    body {
-        font-family: Open Sans;
-        font-weight: 300;
-        background: linear-gradient(to right, #f857a6, #ff5858);
-    }
-    
-    .complete-button {
-        border: 2px solid #ff69b4;
-        color: #ff69b4;
-    }
-    
-    input, .submit-button {
-        border: 1px solid #eee;
-    }
-    
-    .submit-button {
-        background: #ff1493;
-        color: white;
-    }
-    
-    h1, p, a {
-        color: black;
-    }
-    
-    .box {
-        background: white;
-        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    } */
+body {
+  font-family: Open Sans;
+  font-weight: 300;
+  background: linear-gradient(to right, #f857a6, #ff5858);
+}
+
+h2, p {
+  color: black;
+}
+
+.box {
+  background: white;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.box div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.box div.completed {
+  text-decoration: line-through;
+}
+
+.complete-button {
+  border: 2px solid #ff69b4;
+  color: #ff69b4;
+  background: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.complete-button:hover {
+  background: #ff69b4;
+  color: white;
+}
+
+button {
+  border: 1px solid #eee;
+  background: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #eee;
+}
+
+.submit-button {
+  border: 1px solid #eee;
+  background: #ff1493;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background: #ff69b4;
+}
+
+input {
+  border: 1px solid #eee;
+  padding: 5px;
+}
