@@ -2,91 +2,28 @@
 <html>
   <head>
     <title>To-Do List</title>
-    <style>
-      body {
-        font-family: Open Sans;
-        font-weight: 300;
-        background: linear-gradient(to right, #f857a6, #ff5858);
-      }
-
-      h2, p {
-        color: black;
-      }
-
-      .box {
-        background: white;
-        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-        margin-top: 20px;
-        padding: 20px;
-      }
-
-      .box div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-      }
-
-      .box div.completed {
-        text-decoration: line-through;
-      }
-
-      .complete-button {
-        border: 2px solid #ff69b4;
-        color: #ff69b4;
-        background: none;
-        padding: 5px;
-        cursor: pointer;
-      }
-
-      .complete-button:hover {
-        background: #ff69b4;
-        color: white;
-      }
-
-      button {
-        border: 1px solid #eee;
-        background: none;
-        padding: 5px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background: #eee;
-      }
-
-      .submit-button {
-        border: 1px solid #eee;
-        background: #ff1493;
-        color: white;
-        padding: 5px;
-        cursor: pointer;
-      }
-
-      .submit-button:hover {
-        background: #ff69b4;
-      }
-
-      input {
-        border: 1px solid #eee;
-        padding: 5px;
-      }
-    </style>
   </head>
   <body>
     <h2>To-Do List</h2>
     <p>A place to store your to-dos</p>
     <div class="box" *ngFor="let todo of todos">
       <div [ngClass]="{ 'completed': todo.completed }">
-        <span>{{ todo.task }}</span>
+        <span *ngIf="!todo.isEditing">{{ todo.task }}</span>
+        <input type="text" *ngIf="todo.isEditing" [(ngModel)]="todo.task">
         <button class="complete-button" *ngIf="!todo.completed" (click)="completeTask(todo)">Complete</button>
         <button (click)="removeTask(todo)">X</button>
+        <button *ngIf="!todo.isEditing" (click)="editTask(todo)">Edit</button>
+        <button *ngIf="todo.isEditing" (click)="todo.isEditing = false">Save</button>
       </div>
     </div>
-    <form (submit)="addTask(task.value); task.value=''">
+    
+    
+    <form (submit)="addTask(task.value); task.value=''; $event.preventDefault()">
       <p>Enter a new task:</p>
       <input type="text" placeholder="Add your to-do" #task required>
-      <button class="submit-button" type="submit">Add</button>
+      <button type="submit">Add</button>
     </form>
+    
   </body>
 </html>
+
