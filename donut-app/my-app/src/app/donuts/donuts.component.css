@@ -1,0 +1,22 @@
+.donuts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .donut {
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .donut h3 {
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  
+  .donut a {
+    display: block;
+    margin-top: 5px;
+  }
+  
