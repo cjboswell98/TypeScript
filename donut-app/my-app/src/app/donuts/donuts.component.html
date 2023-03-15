@@ -1,9 +1,7 @@
-<div *ngIf="donuts">
-  <div *ngFor="let donut of donuts | async">
-    <a [routerLink]="['donut', donut.id ]"><p>Name: {{donut.name}}</p></a>
-    <p>Attribution: {{donut.photo_attribution}}</p>
-    <p>Ref: {{donut.ref}}</p>
-    <img src="{{donut.photo}}" width="150px" height="auto"/>
-    <br/>
-  </div>
+<div *ngFor="let donut of donuts">
+  <a [routerLink]="['donut', donut.id ]"><p>Name: {{donut.name}}</p></a>
+  <p>Attribution: {{donut.photo_attribution}}</p>
+  <p>Ref: {{donut.ref}}</p>
+  <img src="{{donut.photo}}" width="150px" height="auto"/>
+  <br/>
 </div>

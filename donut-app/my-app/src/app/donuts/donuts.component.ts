@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Donut } from '../interfaces/donut';
-import { DonutService } from '../services/donut.service';
+import { Component } from '@angular/core';
+import { Result } from '../interfaces/donutResult';
+import { DonutsService } from '../services/donut.service';
+
 
 @Component({
   selector: 'app-donuts',
   templateUrl: './donuts.component.html',
   styleUrls: ['./donuts.component.css']
 })
-export class DonutsComponent implements OnInit {
-  donuts: Observable<Donut[]> | undefined;
+export class DonutsComponent {
+  donuts:Result[] = []; 
 
-  constructor(private donutService: DonutService) {}
-
-  ngOnInit() {
-    this.donuts = this.donutService.getDonuts();
+  constructor(private api:DonutsService){
+    //I'm calling the api in the constructor so the donuts property is sure to filled out
+    this.api.getAllDonuts().subscribe( 
+      (toplevel) => {
+        this.donuts = toplevel.results; 
+      }
+    )
   }
 }

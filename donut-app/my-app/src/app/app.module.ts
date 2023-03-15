@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { DonutsComponent } from './donuts/donuts.component';
 import { FamousPeopleComponent } from './people/famous-people.component';
 import { FamousPeopleService } from './services/famous-people.service';
+import { DonutDetailsComponent } from './donut-details/donut-details.component';
 
 const routes: Routes = [
   { path: 'donut/:id', component: DonutsComponent }
@@ -19,7 +20,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     DonutsComponent,
-    FamousPeopleComponent
+    FamousPeopleComponent,
+    DonutDetailsComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,8 @@
+<p *ngIf="loading">Loading...</p>
+
+<div *ngIf="!loading">
+    <p>Donut Name: {{donut.name}}</p>
+    <p>Calories: {{donut.calories}}</p>
+    <img src="{{donut.photo}}"/>
+
+</div>
